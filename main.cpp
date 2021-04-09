@@ -23,13 +23,15 @@
   #include<queue>
   #include <malloc.h>
 
-#include "Contenneur.h"
+#include "header.h"
+
   using namespace std;
 
 // Programme principale
 int main()
 {
 
+  //1- Sac à dos fractionnaire
     int capacity = 50;
     //Contenu du sac a dos (Static dans un premier temps)
     Item sac[] = { { 60, 10 }, { 100, 20 }, { 120, 30 } };
@@ -37,6 +39,14 @@ int main()
     int n = sizeof(sac) / sizeof(sac[0]);
 
     // Calcul de la valeur finale
-    cout << "Valeur maximum obtenu = " << fractionalKnapsack(capacity, sac, n);
+    cout << "Valeur maximum obtenu avec Knapsack fractionnaire = " << fractionalKnapsack(capacity, sac, n);
+
+
+ //2- Sac à dos Dynamic programming
+    int valeurs[]={60,100,120};
+    int poids[]={10,20,30};
+    cout << "Valeur maximum obtenu avec Knapsack Dynamic Programmation = " << DPKnapsack(capacity, valeurs, poids, n);
+
+
     return 0;
 }
