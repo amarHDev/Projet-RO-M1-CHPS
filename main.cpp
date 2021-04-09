@@ -32,20 +32,25 @@ int main()
 {
 
   //1- Sac à dos fractionnaire
-    int capacity = 50;
+    int capacity = 6;
     //Contenu du sac a dos (Static dans un premier temps)
-    Item sac[] = { { 60, 10 }, { 100, 20 }, { 120, 30 } };
+    Item sac[] = { { 10, 1 }, { 15, 2 }, { 40, 3 } };
 
     int n = sizeof(sac) / sizeof(sac[0]);
 
     // Calcul de la valeur finale
-    cout << "Valeur maximum obtenu avec Knapsack fractionnaire = " << fractionalKnapsack(capacity, sac, n);
+    cout << "Valeur maximum obtenu avec Knapsack fractionnaire = " << fractionalKnapsack(capacity, sac, n) << endl;
 
 
  //2- Sac à dos Dynamic programming
-    int valeurs[]={60,100,120};
-    int poids[]={10,20,30};
-    cout << "Valeur maximum obtenu avec Knapsack Dynamic Programmation = " << DPKnapsack(capacity, valeurs, poids, n);
+    int valeurs[]={10,15,40};
+    int poids[]={1,2,3};
+    cout << "Valeur maximum obtenu avec Knapsack Dynamic Programmation = " << DPKnapsack(capacity, valeurs, poids, n) << endl;
+
+ //3- Sac à dos version amelioré (sans trop  de récursivité)
+    cout << "Valeur maximum obtenu avec Knapsack Dynamic Programmation amelioré = " << DPKnapsackAmeliorer(capacity, valeurs, poids, n) << endl;
+
+
 
 
     return 0;
