@@ -27,3 +27,24 @@ int DPKnapsack(int capacity, int valeurs[], int poids[], int n){
         return max(valeurs[n-1]+DPKnapsack(capacity-poids[n-1],valeurs,poids,n-1),DPKnapsack(capacity,valeurs,poids,n-1));
   }
 }
+
+
+//Dynamic Programming amelioré
+int DPKnapsackAmeliorer(int capacity, int valeurs[], int poids[], int n){
+
+  int temp_tab[n+1][capacity+1];
+
+  for( int i = 0; i <= n ; i++){
+    for(int w = 0 ; w <= capacity ; w++){
+      if( (w == 0) || (i == 0)){
+        temp_tab[i][w] = 0;
+      }else if(poids[i-1] <= w){
+        temp_tab[i][w] = max (valeurs[i-1] + temp_tab[i-1][w - poids[i-1]], temp_tab[i-1][w]);
+      }else{
+        temp_tab[i][w] = temp_tab[i-1][w];
+      }
+    }
+  }
+
+  return temp_tab[n][capacity];
+}
