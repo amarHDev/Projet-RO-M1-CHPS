@@ -32,7 +32,7 @@ int main()
 {
 
   //1- Sac à dos fractionnaire
-    int capacity = 6;
+    int capacity = 10;
     //Contenu du sac a dos (Static dans un premier temps)
     Item sac[] = { { 10, 1 }, { 15, 2 }, { 40, 3 } };
 
@@ -50,7 +50,10 @@ int main()
  //3- Sac à dos version amelioré (sans trop  de récursivité)
     cout << "Valeur maximum obtenu avec Knapsack Dynamic Programmation amelioré = " << DPKnapsackAmeliorer(capacity, valeurs, poids, n) << endl;
 
-
+ //4- Backtracking (valeur,poids)
+    Item2 sac2[] = { { 2, 40}, { 3.14, 50 }, { 1.98, 100 }, { 5, 95 }, { 3, 30} };
+    int n2 = sizeof(sac2) / sizeof(sac2[0]);
+    cout << "Valeur maximum obtenu avec le Backtracking = " << Backtracking(capacity, sac2, n2) << endl;
 
 
     return 0;
