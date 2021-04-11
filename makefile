@@ -11,13 +11,16 @@ SacaDosDynamicProgrammation.o: SacaDosDynamicProgrammation.cpp header.h
 	$(CC) $(CFLAGS)  -c SacaDosDynamicProgrammation.cpp $(CF)
 
 Backtracking.o: Backtracking.cpp header.h
-	$(CC) -c Backtracking.cpp 
+	$(CC) -c Backtracking.cpp
+
+8-Puzzle.o: 8-Puzzle.cpp header.h
+	$(CC) -c 8-Puzzle.cpp
 
 main.o: main.cpp header.h
 	$(CC) $(CFLAGS) -c main.cpp
 
-exe1: SacaDosFractionnaire.o SacaDosDynamicProgrammation.o Backtracking.o main.o
-	$(CC) $(CFLAGS) SacaDosFractionnaire.o SacaDosDynamicProgrammation.o Backtracking.o main.o -o exe1
+exe1: SacaDosFractionnaire.o SacaDosDynamicProgrammation.o Backtracking.o 8-Puzzle.o main.o
+	$(CC) $(CFLAGS) SacaDosFractionnaire.o SacaDosDynamicProgrammation.o Backtracking.o 8-Puzzle.o main.o -o exe1
 
 clean:
 	rm -rf *.o
