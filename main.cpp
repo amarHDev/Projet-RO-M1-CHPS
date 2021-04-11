@@ -55,6 +55,27 @@ int main()
     int n2 = sizeof(sac2) / sizeof(sac2[0]);
     cout << "Valeur maximum obtenu avec le Backtracking = " << Backtracking(capacity, sac2, n2) << endl;
 
+ //5- 8-PUZZLE Problème
+
+    // Coordonnée de la case vide dans le tableau de la configuration initiale
+    int x = 0;
+    int y = 2;
+
+    // Configuration Initiale de tableau à 8 cases
+    int config_initiale[N][N] = {
+        {1, 2, 0},
+        {5, 6, 3}, //Pour l'espace vide en utilise la valeur 0
+        {7, 8, 4}
+    };
+
+    // Configuation finale (ou est-ce qu'ont veux arriver)
+    int config_finale[N][N] = {
+        {1, 2, 3},
+        {0, 8, 6},
+        {5, 7, 4}
+    };
+
+    Puzzle_8(config_initiale, x, y, config_finale);
 
     return 0;
 }
