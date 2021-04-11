@@ -39,3 +39,34 @@ struct Noeud
 bool cmp2(struct Item2 a, struct Item2 b);
 int bound(Noeud u, int n, int capacity, Item2 sac[]);
 int Backtracking(int capacity, Item2 sac[], int n);
+
+
+//8-PUZZLE Problème
+#define N 3
+
+// state space tree nodes
+struct Noeud_puzzle
+{
+    // stores the parent node of the current node
+    // helps in tracing path when the answer is found
+    Noeud_puzzle* parent;
+
+    // stores matrix
+    int mat[N][N];
+
+    // stores blank tile coordinates
+    int x, y;
+
+    // stores the number of misplaced tiles
+    int cost;
+
+    // stores the number of moves so far
+    int niveau;
+};
+
+int Affiche_matrice(int mat[N][N]);
+void Affiche_Path(Noeud_puzzle* root);
+int isSafe(int x, int y);
+int calculateCost(int initiale[N][N], int finale[N][N]);
+Noeud_puzzle* newNoeud(int mat[N][N], int x, int y, int newX, int newY, int niveau, Noeud_puzzle* parent);
+void Puzzle_8(int initial[N][N], int x, int y, int final[N][N]);
